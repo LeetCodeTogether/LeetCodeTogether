@@ -10,3 +10,5 @@ Fitness Tasks:
 - plank
 - jumping jacks
 - char tricep dips
+
+Create a lobby today and challenge your friends!
