@@ -15,9 +15,11 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import { Button } from '@material-ui/core';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import CodeIcon from '@material-ui/icons/Code';
+import PeopleIcon from '@material-ui/icons/People';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 
 
 
@@ -80,22 +82,25 @@ export default function MiniDrawer(props) {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {[{name: 'Dashboard', icon: < DashboardIcon /> }, 
+            {name: 'Challenges', icon: < CodeIcon /> }, 
+            {name: 'Friends', icon: <PeopleIcon/> },
+            {name: 'Lobbies', icon: <MeetingRoomIcon/> }].map((text) => (
+                <ListItem button key={text.name}>
+                  <ListItemIcon>{text.icon}</ListItemIcon>
+                  <ListItemText primary={text.name} />
+                </ListItem>
+              ))}
         </List>
         <Divider />
-        <List>
+        {/* <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
