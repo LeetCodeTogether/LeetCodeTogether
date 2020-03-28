@@ -1,7 +1,7 @@
 import React from "react";
 import LobbyScreen from "./LobbyScreen.js";
 import Navigation from "./Navigation"
-import { useStyles } from "./useStyles";
+import useStyles from "./useStyles";
 
 const App = () => {
     return(
