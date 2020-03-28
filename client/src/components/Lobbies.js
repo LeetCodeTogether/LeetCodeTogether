@@ -1,6 +1,3 @@
-import LobbyLeaderboard from "./LobbyLeaderboard";
-import LobbyPersonalScoreboard from "./LobbyPersonalScoreboard";
-import LobbyVideo from "./LobbyVideo";
 import React from "react";
 
 class Lobbies extends React.Component {
