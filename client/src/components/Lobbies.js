@@ -3,16 +3,14 @@ import LobbyPersonalScoreboard from "./LobbyPersonalScoreboard";
 import LobbyVideo from "./LobbyVideo";
 import React from "react";
 
-class LobbyScreen extends React.Component {
+class Lobbies extends React.Component {
     render = () => {
         return(
             <div className="lobby-screen">
-                <LobbyLeaderboard />
-                <LobbyPersonalScoreboard />
-                <LobbyVideo />
+                <h1>This is the Lobbies page!</h1>
             </div>
         );
     }
 }
 
-export default LobbyScreen;
+export default Lobbies;
