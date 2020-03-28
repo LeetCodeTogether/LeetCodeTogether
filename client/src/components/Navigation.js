@@ -85,10 +85,10 @@ export default function MiniDrawer(props) {
           {[{name: 'Dashboard', icon: < DashboardIcon /> }, 
             {name: 'Challenges', icon: < CodeIcon /> }, 
             {name: 'Friends', icon: <PeopleIcon/> },
-            {name: 'Lobbies', icon: <MeetingRoomIcon/> }].map((text) => (
-                <ListItem button key={text.name}>
-                  <ListItemIcon>{text.icon}</ListItemIcon>
-                  <ListItemText primary={text.name} />
+            {name: 'Lobbies', icon: <MeetingRoomIcon/> }].map((item) => (
+                <ListItem button key={item.name}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.name} />
                 </ListItem>
               ))}
         </List>
