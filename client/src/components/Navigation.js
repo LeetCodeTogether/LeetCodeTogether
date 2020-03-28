@@ -16,17 +16,13 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Button } from '@material-ui/core';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import CodeIcon from '@material-ui/icons/Code';
-import PeopleIcon from '@material-ui/icons/People';
-import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
-
 
 
 export default function MiniDrawer(props) {
   const classes = props.useStyles();
   const theme = useTheme;
   const [open, setOpen] = React.useState(false);
+  const [content, setContent] = React.useState(props.content[0])
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -82,11 +78,8 @@ export default function MiniDrawer(props) {
         </div>
         <Divider />
         <List>
-          {[{name: 'Dashboard', icon: < DashboardIcon /> }, 
-            {name: 'Challenges', icon: < CodeIcon /> }, 
-            {name: 'Friends', icon: <PeopleIcon/> },
-            {name: 'Lobbies', icon: <MeetingRoomIcon/> }].map((item) => (
-                <ListItem button key={item.name}>
+          {props.content.map((item, index) => (
+                <ListItem button key={item.name} onClick={() => {setContent(item)}}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.name} />
                 </ListItem>
@@ -97,7 +90,7 @@ export default function MiniDrawer(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
-          { props.content }
+          { content.path }
         </Typography>
       </main>
     </div>
