@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     overflowX: 'hidden',
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9) + 1,
+      width: theme.spacing(9) - 10,
     },
   },
   toolbar: {
@@ -71,6 +71,6 @@ const useStyles = makeStyles(theme => ({
     color: "white",
   }
 }));
-const drawerWidth = 240;
+const drawerWidth = 210;
 
 export default useStyles
