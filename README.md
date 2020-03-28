@@ -1,15 +1,12 @@
-# FitnessTogether
+# LeetCode Together
 
-### Stuck at home during the COVID-19 pandemic and are starting to get out of shape? Or you need that additional motivation to do some at-home exercises?
+### Are you preparing for a technical interview and wish you had more motivation to practice LeetCode? Or maybe you just enjoy grinding LeetCode and wish your friends did too... 
 
-We understand - that's why working out at home is better together with friends!
+If this is you, this app is for you! We know that grinding LeetCode is more fun together with others!
 
-Fitness Tasks:
-- pushups
-- situps 
-- plank
-- jumping jacks
-- char tricep dips
-- squats
+### Features:
+- Access your LeetCode stats (via LeetCode API)
+- View leaderboards with stats from your friends
+- Challenge friends to do problems (set start time and capture finish time)
 
 Create a lobby today and challenge your friends!
