@@ -2,7 +2,7 @@ defmodule CodeTogetherWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", CodeTogetherWeb.RoomChannel
+  channel "room:*", CodeTogetherWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
