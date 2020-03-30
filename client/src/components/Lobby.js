@@ -7,12 +7,21 @@ function Alert(props) {
   }
   
 class Lobby extends React.Component {
+    state = {
+        open: true,
+    }
+    handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        this.setState({open: false})
+    };
     render = () => {
         return (
             <div className="lobby">
                 <h1>This is a lobby!</h1>
-                <Snackbar open="true" autoHideDuration={6000}>
-                    <Alert severity="success">
+                <Snackbar open={this.state.open} autoHideDuration={4000} onClose={this.handleClose}>
+                    <Alert onClose={this.handleClose} severity="success">
                      Joined &lt;Some Lobby Name>!
                     </Alert>
                 </Snackbar>
