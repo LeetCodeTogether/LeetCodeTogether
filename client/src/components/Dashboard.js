@@ -1,6 +1,8 @@
 import React from 'react';
 import algorithms from '../test/algorithms.json';
-import Chart from './Chart.js'
+import PieChart from './PieChart.js'
+import BarChart from './BarChart.js'
+import { Container, Grid } from '@material-ui/core';
 
 class Dashboard extends React.Component {
     render = () => {
@@ -16,8 +18,14 @@ class Dashboard extends React.Component {
             <div className="Dashboard">
                 <h1>This is the Dashboard!</h1>
                 Below are my stats:
-                {/* {displayUserData} */}
-                < Chart />
+                <Grid container spacing={2} justify="center">
+                    <Grid item md={4} sm={8}>
+                        <PieChart />
+                    </Grid>
+                    <Grid item md={4} sm={8}>
+                        <BarChart />
+                    </Grid>
+                </Grid>
             </div>
         )
     }

@@ -7,7 +7,6 @@ import {
   Tooltip,
   Legend,
 } from '@devexpress/dx-react-chart-material-ui';
-
 import { Animation, EventTracker } from '@devexpress/dx-react-chart';
 import algorithms from '../test/algorithms.json';
 
