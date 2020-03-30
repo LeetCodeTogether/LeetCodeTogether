@@ -17,7 +17,7 @@ const App = () => {
                 {name: 'Dashboard', icon: < DashboardIcon />, path: < Dashboard /> }, 
                 {name: 'Challenges', icon: < CodeIcon />, path: < Challenges /> }, 
                 {name: 'Friends', icon: <PeopleIcon/>, path: < Friends /> },
-                {name: 'Lobbies', icon: <MeetingRoomIcon/>, path: < Lobbies /> }
+                {name: 'Lobbies', icon: <MeetingRoomIcon/>, path: < Lobbies /> },
                 ]} />
         </div>
     );
