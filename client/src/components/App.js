@@ -15,9 +15,9 @@ const App = () => {
         <div className="app">
             <Navigation useStyles={useStyles} content={[
                 {name: 'Dashboard', icon: < DashboardIcon />, path: < Dashboard /> }, 
-                {name: 'Challenges', icon: < CodeIcon />, path: < Challenges /> }, 
+                {name: 'Let\'s Code!', icon: < CodeIcon />, path: < Lobbies /> }, 
                 {name: 'Friends', icon: <PeopleIcon/>, path: < Friends /> },
-                {name: 'Lobbies', icon: <ForumIcon/>, path: < Lobbies /> },
+                {name: 'Discussion', icon: <ForumIcon/>, path: < Challenges /> },
                 ]} />
         </div>
     );
