@@ -9,7 +9,6 @@ import Dashboard from "./Dashboard.js";
 import Challenges from "./Challenges.js";
 import Friends from "./Friends";
 import Lobbies from "./Lobbies";
-import Lobby from "./Lobby";
 
 const App = () => {
     return(

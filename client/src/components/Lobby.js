@@ -1,7 +1,7 @@
 import React from "react";
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import { Card, Typography, Divider, Grid, Paper } from "@material-ui/core";
+import { Card, Typography, Divider, Grid } from "@material-ui/core";
 import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
 import ChatFrame from "./ChatFrame";
