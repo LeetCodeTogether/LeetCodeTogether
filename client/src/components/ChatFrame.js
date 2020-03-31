@@ -1,9 +1,5 @@
 import React from "react";
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
-import { Card, Typography, Divider, Paper, TextField, Fab } from "@material-ui/core";
-import CardContent from '@material-ui/core/CardContent';
-import { withStyles } from '@material-ui/core/styles';
+import { Paper, TextField, Fab } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
 
 
