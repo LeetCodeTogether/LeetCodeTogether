@@ -25,20 +25,19 @@ class Lobbies extends React.Component {
     listLobbies = (
         <>
             <h2><span>Available Lobbies</span></h2>
-            {lobbies.map(lobby => {
-                return (
-                    <ListItem button="true" onClick={() => this.setView(lobby)}>
-                        <ListItemAvatar>
-                            <Avatar>
-                                <FolderIcon />
-                            </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                            primary="Code Lobby"
-                        />
-                    </ListItem>
-                )
-            })}
+            {lobbies.map(lobby => (
+                <ListItem button="true" onClick={() => this.setView(lobby)}>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <FolderIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText
+                        primary="Code Lobby"
+                    />
+                </ListItem>
+            )
+            )}
         </>
     )
 
@@ -46,7 +45,7 @@ class Lobbies extends React.Component {
         this.setState({
             view: (
                 <>
-                    <Button variant="outlined" onClick={() => this.setState({view: this.listLobbies})} size="medium" startIcon={<KeyboardBackspaceIcon />}>
+                    <Button variant="outlined" onClick={() => this.setState({ view: this.listLobbies })} size="medium" startIcon={<KeyboardBackspaceIcon />}>
                         Back to All Lobbies
                         </Button>
                     {view}
