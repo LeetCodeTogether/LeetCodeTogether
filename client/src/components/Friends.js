@@ -4,7 +4,7 @@ class Friends extends React.Component {
     render = () => {
         return(
             <div className="Friends">
-                <h1>This is the Friends page!</h1>
+                <h2><span>This is the Friends Page!</span></h2>
             </div>
         )
     }
