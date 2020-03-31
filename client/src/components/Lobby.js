@@ -13,14 +13,22 @@ function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const styles = {
-    root: {
-        marginTop: "30px",
-        width: "80%",
-        minHeight: "30em",
-        margin: "auto",
-    },
-}
+const styles = ((theme) => ({
+        root: {
+            marginTop: "30px",
+            minHeight: "30em",
+            margin: "auto",
+            [theme.breakpoints.down('sm')]: {
+                width: "93%",
+            },
+            [theme.breakpoints.up('md')]: {
+                width: "80%",
+            },
+            [theme.breakpoints.up('lg')]: {
+                width: "80%",
+            },
+        },
+    }));
 
 class Lobby extends React.Component {
     state = {
@@ -39,7 +47,7 @@ class Lobby extends React.Component {
                 <Card className={classes.root}>
                     <CardContent>
                         <Typography variant="button" style={{ fontSize: "1.3rem", }}>Code Lobby</Typography>
-                        <Divider style={{marginBottom: '20px',}} />
+                        <Divider style={{ marginBottom: '20px', }} />
                         <Grid container spacing={3}>
                             <Grid item xs>
                                 <ChatFrame styles={LobbyStyles} />
