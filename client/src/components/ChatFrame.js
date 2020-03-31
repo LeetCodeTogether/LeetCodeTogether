@@ -3,26 +3,12 @@ import { Paper, TextField, Fab } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
 
 
-const styles = {
-    chatFrame: {
-        width: "16em",
-        height: "25em",
-        marginTop: "10px",
-        position: "relative",
-    },
-    bottomMessageBar: {
-        position: "absolute",
-        bottom: "5px",
-        left: "5px",
-    }
-}
-
-const ChatFrame = () => {
+const ChatFrame = (props) => {
     return (
         <div>
-            <Paper style={styles.chatFrame}>
+            <Paper style={props.styles.frame}>
                 <form noValidate autoComplete="off">
-                    <div style={styles.bottomMessageBar}>
+                    <div style={props.styles.bottomBar}>
                         <TextField id="outlined-basic" label="Message..." variant="outlined" size="small"
                             onKeyPress={(ev) => {
                                 if (ev.key === 'Enter') {

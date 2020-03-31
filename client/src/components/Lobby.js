@@ -1,10 +1,12 @@
 import React from "react";
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import { Card, Typography, Divider } from "@material-ui/core";
+import { Card, Typography, Divider, Grid, Paper } from "@material-ui/core";
 import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
 import ChatFrame from "./ChatFrame";
+import ChallengeView from './ChallengeView.js'
+import LobbyStyles from './LobbyStyles.js'
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -35,10 +37,27 @@ class Lobby extends React.Component {
             <div className="lobby">
                 <Card className={classes.root}>
                     <CardContent>
-                        <Typography variant="button" style={{fontSize: "1.3rem",}}>Code Lobby</Typography>
+                        <Typography variant="button" style={{ fontSize: "1.3rem", }}>Code Lobby</Typography>
                         <Divider />
-                        <ChatFrame />
+                        <Grid container spacing={3}>
+                            <Grid item>
+                                <ChatFrame styles={LobbyStyles} />
+                            </Grid>
+                            <Grid item>
+                                <ChallengeView styles={LobbyStyles} />
+                                <Paper>
+                                    Something else
+                                </Paper>
+                            </Grid>
+                            <Grid item>
+                                <Paper >
+                                    Something else
+                                </Paper>
+                            </Grid>
+                        </Grid>
+
                     </CardContent>
+                    {/* <ChatFrame /> */}
                 </Card>
                 <Snackbar open={this.state.open} autoHideDuration={4000} onClose={this.handleClose}>
                     <Alert onClose={this.handleClose} severity="success">
