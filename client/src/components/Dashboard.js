@@ -1,7 +1,7 @@
 import React from 'react';
 import PieChart from './PieChart.js'
 import BarChart from './BarChart.js'
-import { Container, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 class Dashboard extends React.Component {
     render = () => { 
