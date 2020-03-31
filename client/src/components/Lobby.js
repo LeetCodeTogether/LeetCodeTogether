@@ -51,9 +51,7 @@ class Lobby extends React.Component {
                                 <Leaderboard styles={LobbyStyles} />
                             </Grid>
                         </Grid>
-
                     </CardContent>
-                    {/* <ChatFrame /> */}
                 </Card>
                 <Snackbar open={this.state.open} autoHideDuration={4000} onClose={this.handleClose}>
                     <Alert onClose={this.handleClose} severity="success">
