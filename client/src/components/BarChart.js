@@ -5,6 +5,7 @@ import {
   BarSeries,
 } from '@devexpress/dx-react-chart-material-ui';
 import algorithms from '../test/algorithms.json';
+import { Animation } from '@devexpress/dx-react-chart';
 
 const userData = JSON.parse(JSON.stringify(algorithms));
 const data = [
@@ -35,6 +36,7 @@ export default class Demo extends React.PureComponent {
             valueField="n"
             argumentField="name"
           />
+          <Animation />
         </Chart>
       </Paper>
     );
