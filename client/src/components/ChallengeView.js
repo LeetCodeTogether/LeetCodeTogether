@@ -10,6 +10,7 @@ export default function ChallengeView(props) {
     return (
         <Paper style={props.styles.frame}>
             <Typography variant="button" style={{ paddingLeft: "8px" }}>Challenges</Typography>
+            <Divider />
             {challenges.map((challenge) => (
                 <Paper variant="outlined" style={props.styles.challenge}>
                     {challenge.name}: {challenge.note}

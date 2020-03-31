@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ChatFrame from "./ChatFrame";
 import ChallengeView from './ChallengeView.js'
 import LobbyStyles from './LobbyStyles.js'
+import Leaderboard from './Leaderboard.js'
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -45,14 +46,9 @@ class Lobby extends React.Component {
                             </Grid>
                             <Grid item>
                                 <ChallengeView styles={LobbyStyles} />
-                                <Paper>
-                                    Something else
-                                </Paper>
                             </Grid>
                             <Grid item>
-                                <Paper >
-                                    Something else
-                                </Paper>
+                                <Leaderboard styles={LobbyStyles} />
                             </Grid>
                         </Grid>
 
