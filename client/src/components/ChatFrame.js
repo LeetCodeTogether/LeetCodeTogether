@@ -1,30 +1,30 @@
 import React from "react";
-import { Paper, TextField, Fab } from "@material-ui/core";
+import { Paper, TextField, Fab, Divider, Typography, Container } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
 
 
 const ChatFrame = (props) => {
     return (
-        <div>
-            <Paper style={props.styles.frame}>
-                <form noValidate autoComplete="off">
-                    <div style={props.styles.bottomBar}>
-                        <TextField id="outlined-basic" label="Message..." variant="outlined" size="small"
-                            onKeyPress={(ev) => {
-                                if (ev.key === 'Enter') {
-                                    // Do code here
-                                    console.log(`Pressed keyCode ${ev.key}`);
-                                    ev.preventDefault();
-                                }
-                            }} />
-                        <Fab color="primary" aria-label="send" size="small" style={{ left: "4px", }}>
-                            <SendIcon />
-                        </Fab>
-
-                    </div>
-                </form>
+        <Paper style={props.styles.frame}>
+            <Typography variant="button" style={{ paddingLeft: "8px" }}>Chat</Typography>
+            <Divider />
+            <Paper variant="outlined" style={props.styles.challenge}>
+                Chat text here...
             </Paper>
-        </div>
+            <form style={props.styles.bottomBar} noValidate autoComplete="off">
+                <TextField id="outlined-basic" label="Message..." variant="outlined" size="small"
+                    onKeyPress={(ev) => {
+                        if (ev.key === 'Enter') {
+                            // Do code here
+                            console.log(`Pressed keyCode ${ev.key}`);
+                            ev.preventDefault();
+                        }
+                    }} />
+                <Fab color="primary" aria-label="send" size="small" style={{ left: "4px", }}>
+                    <SendIcon />
+                </Fab>
+            </form>
+        </Paper>
     )
 }
 export default ChatFrame;

@@ -17,7 +17,7 @@ const styles = {
     root: {
         marginTop: "30px",
         width: "80%",
-        height: "30em",
+        minHeight: "30em",
         margin: "auto",
     },
 }
@@ -39,15 +39,15 @@ class Lobby extends React.Component {
                 <Card className={classes.root}>
                     <CardContent>
                         <Typography variant="button" style={{ fontSize: "1.3rem", }}>Code Lobby</Typography>
-                        <Divider />
+                        <Divider style={{marginBottom: '20px',}} />
                         <Grid container spacing={3}>
-                            <Grid item>
+                            <Grid item xs>
                                 <ChatFrame styles={LobbyStyles} />
                             </Grid>
-                            <Grid item>
+                            <Grid item xs>
                                 <ChallengeView styles={LobbyStyles} />
                             </Grid>
-                            <Grid item>
+                            <Grid item xs>
                                 <Leaderboard styles={LobbyStyles} />
                             </Grid>
                         </Grid>
