@@ -34,7 +34,7 @@ class Lobbies extends React.Component {
                             </Avatar>
                         </ListItemAvatar>
                         <ListItemText
-                            primary="<Some Lobby Name>"
+                            primary="Code Lobby"
                         />
                     </ListItem>
                 )

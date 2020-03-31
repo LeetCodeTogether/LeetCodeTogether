@@ -1,10 +1,10 @@
 import React from "react";
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import { Card } from "@material-ui/core";
+import { Card, Typography, Divider } from "@material-ui/core";
 import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import ChatFrame from "./ChatFrame";
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -12,9 +12,9 @@ function Alert(props) {
 
 const styles = {
     root: {
-        marginTop: "40px",
+        marginTop: "30px",
         width: "80%",
-        height: "80%",
+        height: "30em",
         margin: "auto",
     },
 }
@@ -29,18 +29,20 @@ class Lobby extends React.Component {
         }
         this.setState({ open: false })
     };
-    render = (props) => {
+    render = () => {
         const { classes } = this.props;
         return (
             <div className="lobby">
                 <Card className={classes.root}>
                     <CardContent>
-                        This
+                        <Typography variant="button" style={{fontSize: "1.3rem",}}>Code Lobby</Typography>
+                        <Divider />
+                        <ChatFrame />
                     </CardContent>
                 </Card>
                 <Snackbar open={this.state.open} autoHideDuration={4000} onClose={this.handleClose}>
                     <Alert onClose={this.handleClose} severity="success">
-                        Joined &lt;Some Lobby Name>!
+                        Joined Code Lobby!
                     </Alert>
                 </Snackbar>
             </div>
