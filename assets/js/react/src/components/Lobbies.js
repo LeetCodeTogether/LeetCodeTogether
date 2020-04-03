@@ -11,7 +11,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 // List of available lobbies
 // TODO: Add a getter for list of lobbies
 const lobbies = [
-    <Lobby />,
+    {name: "Eric's Leetcode Lobby", id: "abcd1234",},
+    {name: "Jerry's Lobby", id: "qwer5678",},
 ];
 
 class Lobbies extends React.Component {
@@ -26,14 +27,14 @@ class Lobbies extends React.Component {
         <>
             <h2><span>Available Lobbies</span></h2>
             {lobbies.map(lobby => (
-                <ListItem button="true" onClick={() => this.setView(lobby)}>
+                <ListItem button={true} onClick={() => this.setView(<Lobby id={lobby.id} />)} key={lobby.id} >
                     <ListItemAvatar>
                         <Avatar>
                             <FolderIcon />
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText
-                        primary="Code Lobby"
+                        primary={lobby.name}
                     />
                 </ListItem>
             )

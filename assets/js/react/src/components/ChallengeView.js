@@ -6,6 +6,8 @@ import SendIcon from '@material-ui/icons/Send';
 // this should be the result of an api call
 const getChallenges = [
     { name: "Two sum", challenger: "Jerry", note: "I challenge you to do two sum in the next twenty minutes!", },
+    { name: "Challenge 2", challenger: "Jerry", note: "I challenge you to do two sum in the next twenty minutes!", },
+    { name: "Challenge 3", challenger: "Jerry", note: "I challenge you to do two sum in the next twenty minutes!", },
 ];
 
 export default function ChallengeView(props) {
@@ -15,8 +17,9 @@ export default function ChallengeView(props) {
         // add code to increment user score
     };
     function hideChallenge(rem, i) {
-        var arr = challenges.splice(i, i)
-        setChallenges(arr)
+        challenges.splice(i, 1);
+        var arr = [...challenges];
+        setChallenges(arr);
     };
 
     return (
@@ -24,7 +27,7 @@ export default function ChallengeView(props) {
             <Typography variant="button" style={{ paddingLeft: "8px" }}>Challenges</Typography>
             <Divider />
             {challenges.map((challenge, index) => (
-                <Paper variant="outlined" style={props.styles.challenge}>
+                <Paper variant="outlined" style={props.styles.challenge} key={challenge.name} >
                     {challenge.name}: {challenge.note}
                     <Divider />
                     Challenger: {challenge.challenger}
