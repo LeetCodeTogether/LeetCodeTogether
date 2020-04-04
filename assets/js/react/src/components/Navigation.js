@@ -89,9 +89,7 @@ export default function MiniDrawer(props) {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>
-          { content.path }
-        </Typography>
+        { content.path }
       </main>
     </div>
   );
