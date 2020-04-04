@@ -15,9 +15,16 @@ defmodule LeetcodeTogetherWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
+
+  # Begin Eric's code:
   def connect(_params, socket, _connect_info) do
     {:ok, socket}
   end
+
+  # Begin Jerry's code:
+  # def connect(socket) do
+  #   {:ok, socket}
+  # end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
   #

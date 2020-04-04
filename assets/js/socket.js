@@ -74,6 +74,11 @@ let channel = socket.channel("room:lobby", {});
 
 channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
+  .receive("error", resp => { console.log("Unable to join", resp) });
+
+// This is how you receive a message
+channel.on("response:updated", (r) => console.log(`Received a new notification: "${r.response}"`));
+// This is how you send a message
+channel.push("response:update", {response: "Test push notification!"});
 
 export default socket
