@@ -65,7 +65,7 @@ app.use(express.static(path.join(__dirname, 'client/build/public')));
 
 // Routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build/public/index.html'))
+    res.sendFile(path.join(__dirname, 'client/code-together/public/index.html'))
 });
 
 // passport.authenticate middleware is used here to authenticate the request
