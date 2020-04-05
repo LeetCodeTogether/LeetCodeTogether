@@ -88,7 +88,7 @@ export default function MiniDrawer(props) {
         </List>
         <Divider />
         <List>
-          <ListItem button key={null} onClick={null}>
+          <ListItem button key={null} onClick={() => {location.href('/auth/github')}}>
             <ListItemIcon>
               <AccountCircleIcon />
             </ListItemIcon>
