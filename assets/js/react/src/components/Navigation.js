@@ -16,6 +16,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Button } from '@material-ui/core';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 export default function MiniDrawer(props) {
@@ -86,6 +87,14 @@ export default function MiniDrawer(props) {
               ))}
         </List>
         <Divider />
+        <List>
+          <ListItem button key={null} onClick={null}>
+            <ListItemIcon>
+              <AccountCircleIcon />
+            </ListItemIcon>
+            <ListItemText primary="Log In (GitHub)" />
+          </ListItem>
+        </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />

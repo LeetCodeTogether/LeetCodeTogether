@@ -8,14 +8,14 @@ import ForumIcon from '@material-ui/icons/Forum';
 import Dashboard from "./Dashboard.js";
 import Discussions from "./Discussions.js";
 import Friends from "./Friends";
-import Lobbies from "./Lobbies";
+import Lobby from "./Lobby";
 
 const App = () => {
     return(
         <div className="app">
             <Navigation useStyles={useStyles} content={[
                 {name: 'Dashboard', icon: < DashboardIcon />, path: < Dashboard /> }, 
-                {name: 'Let\'s Code!', icon: < CodeIcon />, path: < Lobbies /> }, 
+                {name: 'Let\'s Code!', icon: < CodeIcon />, path: < Lobby /> }, 
                 {name: 'Friends', icon: <PeopleIcon/>, path: < Friends /> },
                 {name: 'Discussions', icon: <ForumIcon/>, path: < Discussions /> },
                 ]} />
