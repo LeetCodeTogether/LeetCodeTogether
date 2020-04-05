@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navigation from "./Navigation"
+import useStyles from "./useStyles";
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import CodeIcon from '@material-ui/icons/Code';
+import PeopleIcon from '@material-ui/icons/People';
+import ForumIcon from '@material-ui/icons/Forum';
+import Dashboard from "./Dashboard.js";
+import Discussions from "./Discussions.js";
+import Friends from "./Friends";
+import Lobby from "./Lobby";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return(
+        <div className="app">
+            <Navigation useStyles={useStyles} content={[
+                {name: 'Dashboard', icon: < DashboardIcon />, path: < Dashboard /> }, 
+                {name: 'Let\'s Code!', icon: < CodeIcon />, path: < Lobby /> }, 
+                {name: 'Friends', icon: <PeopleIcon/>, path: < Friends /> },
+                {name: 'Discussions', icon: <ForumIcon/>, path: < Discussions /> },
+                ]} />
+        </div>
+    );
 }
 
 export default App;

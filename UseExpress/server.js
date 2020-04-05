@@ -1,6 +1,7 @@
 // Required dependencies 
 const express = require('express');
 const app = express();
+const path = require('path');
 const passport = require('passport');
 const GitHubStrategy = require('passport-github');
 const cookieSession = require('cookie-session');
@@ -59,9 +60,12 @@ function isUserAuthenticated(req, res, next) {
     }
 }
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build/public')));
+
 // Routes
 app.get('/', (req, res) => {
-    res.render('index.ejs');
+    res.sendFile(path.join(__dirname, 'client/build/public/index.html'))
 });
 
 // passport.authenticate middleware is used here to authenticate the request
