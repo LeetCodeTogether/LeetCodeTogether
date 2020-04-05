@@ -1,17 +1,13 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
 
-// Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+const PORT = process.env.PORT || 5000;
 
-// Handles any requests that don't match the ones above
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/public/index.html'));
+app
+  .use(express.static(path.join(__dirname, '/client/build')))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build/public/index.html'));
 });
-
-const port = process.env.PORT || 5000;
-app.listen(port);
-
-console.log('App is listening on port ' + port);
