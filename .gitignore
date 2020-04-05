@@ -36,3 +36,4 @@ npm-debug.log
 # Also ignoring the node modules in UseExpress
 /UseExpress/client/build/node_modules/
 /UseExpress/node_modules/
+/UseExpress/client/code-together/node_modules/
