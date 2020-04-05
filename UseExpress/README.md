@@ -1,6 +1,6 @@
 # Express server to run our project
 
-- I was having trouble learning phx/elixir so I decided to make an express proj
+- Was having trouble with phx/elixir so I decided to make an express project
 
 **Start** (in dev)   
 `npm dev` 
