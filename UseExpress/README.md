@@ -3,4 +3,4 @@
 - Was having trouble with phx/elixir so I decided to make an express project
 
 **Start** (in dev)   
-`npm dev` 
+`npm run dev` 
