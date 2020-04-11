@@ -34,6 +34,8 @@ npm-debug.log
 /priv/static/
 
 # Also ignoring the node modules in UseExpress
-/UseExpress/client/build/node_modules/
+/UseExpress/client/node_modules/
 /UseExpress/node_modules/
 /UseExpress/client/code-together/node_modules/
+node_modules
+
