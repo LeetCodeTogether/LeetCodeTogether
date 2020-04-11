@@ -15,9 +15,9 @@ mongoose.set('debug', true);
 // Initialize users database
 const { Schema } = mongoose;
 const UsersSchema = new Schema({
-  githubId: Number,
-  username: String,
-  name: String,
+    githubId: Number,
+    username: String,
+    name: String,
 }).plugin(findOrCreate);
 const Users = mongoose.model('Users', UsersSchema);
 
@@ -35,13 +35,12 @@ passport.use(new GitHubStrategy({
     clientID: 'Iv1.661622fe77dff4e6',
     clientSecret: 'bf5e82daa699443f781424185a5db7ffcfb93fe9',
     callbackURL: "http://localhost:5000/auth/github/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    Users.findOrCreate({ githubId: profile.id }, { username: profile.username, name: profile.displayName }, function (err, user) {
-        console.log(profile);
-      return done(err, user);
-    });
-  }
+},
+    function (accessToken, refreshToken, profile, done) {
+        Users.findOrCreate({ githubId: profile.id }, { username: profile.username, name: profile.displayName }, function (err, user) {
+            return done(err, user);
+        });
+    }
 ));
 
 // Used to stuff a piece of information into a cookie
@@ -91,7 +90,7 @@ app.get('/secret', isUserAuthenticated, (req, res) => {
 
 // Logout route
 app.get('/logout', (req, res) => {
-    req.logout(); 
+    req.logout();
     res.redirect('/');
 });
 
