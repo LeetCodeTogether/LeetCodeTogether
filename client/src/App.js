@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navigation from "./Navigation"
 import useStyles from "./useStyles";
 import DashboardIcon from '@material-ui/icons/Dashboard';
@@ -11,14 +11,23 @@ import Friends from "./Friends";
 import Lobby from "./Lobby";
 
 const App = () => {
-    return(
+    // User State Hook
+    const [user, setUser] = React.useState({username: null});
+
+    // Runs once when the component is rendered
+    useEffect(() => {fetch('/')
+        .then((response) => {
+            setUser({username: response.headers.get("username")})
+        })}, [0])
+
+    return (
         <div className="app">
-            <Navigation useStyles={useStyles} content={[
-                {name: 'Dashboard', icon: < DashboardIcon />, path: < Dashboard /> }, 
-                {name: 'Let\'s Code!', icon: < CodeIcon />, path: < Lobby /> }, 
-                {name: 'Friends', icon: <PeopleIcon/>, path: < Friends /> },
-                {name: 'Discussions', icon: <ForumIcon/>, path: < Discussions /> },
-                ]} />
+            <Navigation useStyles={useStyles} user={user} content={[
+                { name: 'Dashboard', icon: < DashboardIcon />, path: < Dashboard /> },
+                { name: 'Let\'s Code!', icon: < CodeIcon />, path: < Lobby /> },
+                { name: 'Friends', icon: <PeopleIcon />, path: < Friends /> },
+                { name: 'Discussions', icon: <ForumIcon />, path: < Discussions /> },
+            ]} />
         </div>
     );
 }

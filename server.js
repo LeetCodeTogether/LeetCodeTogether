@@ -66,9 +66,9 @@ function isUserAuthenticated(req, res, next) {
 app.get('/', (req, res) => {
     if (req.user) {
         // Send header with username for now. Later on, we can choose to send additional information
-        res.set({username: req.user.username})
+        res.set({ username: req.user.username })
     } else {
-        res.set({username: null})
+        res.set({ username: null })
     }
     res.sendFile(path.join(__dirname, 'client/build/index.html'))
 });
