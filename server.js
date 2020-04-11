@@ -15,7 +15,9 @@ mongoose.set('debug', true);
 // Initialize users database
 const { Schema } = mongoose;
 const UsersSchema = new Schema({
-  githubId: String,
+  githubId: Number,
+  username: String,
+  name: String,
 }).plugin(findOrCreate);
 const Users = mongoose.model('Users', UsersSchema);
 
@@ -35,7 +37,8 @@ passport.use(new GitHubStrategy({
     callbackURL: "http://localhost:5000/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    Users.findOrCreate({ githubId: profile.id }, function (err, user) {
+    Users.findOrCreate({ githubId: profile.id }, { username: profile.username, name: profile.displayName }, function (err, user) {
+        console.log(profile);
       return done(err, user);
     });
   }
@@ -65,6 +68,9 @@ app.use(express.static(path.join(__dirname, 'client/build/')));
 
 // Routes
 app.get('/', (req, res) => {
+    if (req.user) {
+        // do something
+    }
     res.sendFile(path.join(__dirname, 'client/build/index.html'))
 });
 
