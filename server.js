@@ -100,3 +100,8 @@ app.listen(5000, () => {
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build/')));
+
+// Redirect all other requests to root
+app.get('/*', (req, res) => {
+    res.redirect('/');
+})
