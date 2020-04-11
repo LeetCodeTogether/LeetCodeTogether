@@ -61,11 +61,11 @@ function isUserAuthenticated(req, res, next) {
 }
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build/public')));
+app.use(express.static(path.join(__dirname, 'client/build/')));
 
 // Routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/code-together/public/index.html'))
+    res.sendFile(path.join(__dirname, 'client/build/index.html'))
 });
 
 // passport.authenticate middleware is used here to authenticate the request
