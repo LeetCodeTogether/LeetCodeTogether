@@ -62,13 +62,13 @@ function isUserAuthenticated(req, res, next) {
     }
 }
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build/')));
-
 // Routes
 app.get('/', (req, res) => {
     if (req.user) {
-        // do something
+        // Send header with username for now. Later on, we can choose to send additional information
+        res.set({username: req.user.username})
+    } else {
+        res.set({username: null})
     }
     res.sendFile(path.join(__dirname, 'client/build/index.html'))
 });
@@ -97,3 +97,6 @@ app.get('/logout', (req, res) => {
 app.listen(5000, () => {
     console.log('Server Started!');
 });
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build/')));
