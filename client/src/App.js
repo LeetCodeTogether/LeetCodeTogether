@@ -18,7 +18,7 @@ const App = () => {
     useEffect(() => {fetch('/')
         .then((response) => {
             setUser({username: response.headers.get("username")})
-        })}, [0])
+        })}, [])
 
     return (
         <div className="app">

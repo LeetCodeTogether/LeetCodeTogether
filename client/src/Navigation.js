@@ -15,8 +15,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import LoginComponent from './Login';
 import { Button } from '@material-ui/core';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 export default function MiniDrawer(props) {
@@ -54,9 +54,17 @@ export default function MiniDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            <Button className={classes.mainLogo} onClick = {() => window.location.reload()}>LeetCode Together</Button> 
+          <Typography variant="h6" noWrap style={{ flexGrow: "1", }}>
+            <Button className={classes.mainLogo} onClick={() => window.location.reload()}>LeetCode Together</Button>
           </Typography>
+
+          <LoginComponent {...props} />
+          {/* Login Component */}
+          {/* <Typography variant="h6" noWrap>
+            <Button className={classes.mainLogo} onClick={() => { window.open("http://localhost:5000/auth/github", "_self"); }}>Login</Button>
+          </Typography> */}
+          {/* End Login Component */}
+
         </Toolbar>
       </AppBar>
       <Drawer
@@ -79,26 +87,17 @@ export default function MiniDrawer(props) {
         </div>
         <Divider />
         <List>
-          {props.content.map((item, index) => (
-                <ListItem button key={item.name} onClick={() => {setContent(item)}}>
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.name} />
-                </ListItem>
-              ))}
-        </List>
-        <Divider />
-        <List>
-          <ListItem button key={null} onClick={() => {window.open("http://localhost:5000/auth/github", "_self");}}>
-            <ListItemIcon>
-              <AccountCircleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Log In (GitHub)" />
-          </ListItem>
+          {props.content.map((item) => (
+            <ListItem button key={item.name} onClick={() => { setContent(item) }}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.name} />
+            </ListItem>
+          ))}
         </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        { content.path }
+        {content.path}
       </main>
     </div>
   );

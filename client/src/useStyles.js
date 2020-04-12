@@ -69,6 +69,9 @@ const useStyles = makeStyles(theme => ({
     textTransform: "none",
     paddingTop: "3px",
     color: "white",
+  },
+  secondaryLogo: {
+    color: "white",
   }
 }));
 const drawerWidth = 210;
