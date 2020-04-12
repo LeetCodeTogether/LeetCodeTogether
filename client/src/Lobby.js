@@ -14,21 +14,21 @@ function Alert(props) {
 }
 
 const styles = ((theme) => ({
-        root: {
-            marginTop: "30px",
-            minHeight: "30em",
-            margin: "auto",
-            [theme.breakpoints.down('sm')]: {
-                width: "93%",
-            },
-            [theme.breakpoints.up('md')]: {
-                width: "80%",
-            },
-            [theme.breakpoints.up('lg')]: {
-                width: "80%",
-            },
+    root: {
+        marginTop: "30px",
+        minHeight: "30em",
+        margin: "auto",
+        [theme.breakpoints.down('sm')]: {
+            width: "93%",
         },
-    }));
+        [theme.breakpoints.up('md')]: {
+            width: "80%",
+        },
+        [theme.breakpoints.up('lg')]: {
+            width: "80%",
+        },
+    },
+}));
 
 class Lobby extends React.Component {
     state = {
