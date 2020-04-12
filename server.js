@@ -7,6 +7,7 @@ const GitHubStrategy = require('passport-github');
 const cookieSession = require('cookie-session');
 var findOrCreate = require('mongoose-findorcreate')
 const mongoose = require('mongoose');
+const WebSocket = require('ws')
 
 //Configure Mongoose
 mongoose.connect('mongodb://localhost/code-together');
@@ -20,6 +21,13 @@ const UsersSchema = new Schema({
     name: String,
 }).plugin(findOrCreate);
 const Users = mongoose.model('Users', UsersSchema);
+
+// Initialize messages database
+const MessagesSchema = new Schema({
+    sender: String,
+    message: String,
+}).plugin(findOrCreate);
+const Messages = mongoose.model('Messages', MessagesSchema);
 
 // cookieSession config
 app.use(cookieSession({
