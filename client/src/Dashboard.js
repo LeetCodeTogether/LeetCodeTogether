@@ -10,10 +10,10 @@ class Dashboard extends React.Component {
                 <h1>This is the Dashboard!</h1>
                 Below are my stats:
                 <Grid container spacing={2} justify="center">
-                    <Grid item md={4} sm={8}>
+                    <Grid item xs={10} md={true}>
                         <PieChart />
                     </Grid>
-                    <Grid item md={4} sm={8}>
+                    <Grid item xs={10} md={true}>
                         <BarChart />
                     </Grid>
                 </Grid>

@@ -41,7 +41,7 @@ export default class Demo extends React.PureComponent {
             />
             <EventTracker />
             <Tooltip />
-            <Legend />
+            <Legend position={'bottom'} />
             <Animation />
             </Chart>
         </Paper>
