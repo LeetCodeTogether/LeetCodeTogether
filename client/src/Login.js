@@ -37,7 +37,7 @@ export default function LoginComponent(props) {
     }, [open]);
 
     // "null" is required as server.js passes string null to username
-    if (user.username == null || user.username == "null") {
+    if (user.username === null || user.username === "null") {
         return (
             <Typography variant="button" noWrap>
                 <Button className={classes.secondaryLogo} onClick={() => { window.open("http://localhost:5000/auth/github", "_self"); }}>Login</Button>
