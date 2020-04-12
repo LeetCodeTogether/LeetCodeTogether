@@ -6,6 +6,7 @@ export default function LoginComponent(props) {
     const classes = props.useStyles();
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
+    const user = props.user;
 
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
@@ -35,7 +36,8 @@ export default function LoginComponent(props) {
         prevOpen.current = open;
     }, [open]);
 
-    if (props.user.username === "null") {
+    // "null" is required as server.js passes string null to username
+    if (user.username == null || user.username == "null") {
         return (
             <Typography variant="button" noWrap>
                 <Button className={classes.secondaryLogo} onClick={() => { window.open("http://localhost:5000/auth/github", "_self"); }}>Login</Button>
