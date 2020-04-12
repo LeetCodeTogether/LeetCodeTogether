@@ -57,14 +57,7 @@ export default function MiniDrawer(props) {
           <Typography variant="h6" noWrap style={{ flexGrow: "1", }}>
             <Button className={classes.mainLogo} onClick={() => window.location.reload()}>LeetCode Together</Button>
           </Typography>
-
           <LoginComponent {...props} />
-          {/* Login Component */}
-          {/* <Typography variant="h6" noWrap>
-            <Button className={classes.mainLogo} onClick={() => { window.open("http://localhost:5000/auth/github", "_self"); }}>Login</Button>
-          </Typography> */}
-          {/* End Login Component */}
-
         </Toolbar>
       </AppBar>
       <Drawer
