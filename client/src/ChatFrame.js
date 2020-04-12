@@ -13,6 +13,7 @@ const ChatFrame = (props) => {
             </Paper>
             <form style={props.styles.bottomBar} noValidate autoComplete="off">
                 <TextField id="outlined-basic" label="Message..." variant="outlined" size="small"
+                    style={{ maxWidth: "75%", }}
                     onKeyPress={(ev) => {
                         if (ev.key === 'Enter') {
                             // Do code here
