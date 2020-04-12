@@ -29,6 +29,18 @@ const MessagesSchema = new Schema({
 }).plugin(findOrCreate);
 const Messages = mongoose.model('Messages', MessagesSchema);
 
+// Initialize websocket on port: 3030
+const wss = new WebSocket.Server({port: 3030});
+wss.on('connection', function connection(ws) {
+    ws.on('message', function incoming(data) {
+        wss.clients.array.forEach(client => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(data);
+            }
+        });
+    })
+})
+
 // cookieSession config
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000, // One day in milliseconds
