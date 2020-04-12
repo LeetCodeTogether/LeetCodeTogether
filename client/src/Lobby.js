@@ -32,8 +32,18 @@ const styles = ((theme) => ({
 
 class Lobby extends React.Component {
     state = {
-        open: true,
+        open: false,
+        message: "",
     }
+    ws = new WebSocket('ws://localhost:3030')
+    componentDidMount() {
+        this.ws.onopen = () => {
+            this.setState({
+                open: true,
+                message: 'Connected to lobby!',
+            })
+        }
+    };
     handleClose = (reason) => {
         if (reason === 'clickaway') {
             return;
@@ -63,7 +73,7 @@ class Lobby extends React.Component {
                 </Card>
                 <Snackbar open={this.state.open} autoHideDuration={4000} onClose={this.handleClose}>
                     <Alert onClose={this.handleClose} severity="success">
-                        Joined Code Lobby!
+                        {this.state.message}
                     </Alert>
                 </Snackbar>
             </div>
