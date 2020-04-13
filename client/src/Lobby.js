@@ -33,14 +33,14 @@ const styles = ((theme) => ({
 class Lobby extends React.Component {
     state = {
         open: false,
-        message: "",
+        loginMessage: "",
     }
     ws = new WebSocket('ws://localhost:3030')
     componentDidMount() {
         this.ws.onopen = () => {
             this.setState({
                 open: true,
-                message: 'Connected to lobby!',
+                loginMessage: 'Connected to lobby!',
             })
         }
     };
@@ -60,7 +60,7 @@ class Lobby extends React.Component {
                         <Divider style={{ marginBottom: '20px', }} />
                         <Grid container spacing={3}>
                             <Grid item xs>
-                                <ChatFrame styles={LobbyStyles} />
+                                <ChatFrame styles={LobbyStyles} ws={this.ws} />
                             </Grid>
                             <Grid item xs>
                                 <ChallengeView styles={LobbyStyles} />
@@ -73,7 +73,7 @@ class Lobby extends React.Component {
                 </Card>
                 <Snackbar open={this.state.open} autoHideDuration={4000} onClose={this.handleClose}>
                     <Alert onClose={this.handleClose} severity="success">
-                        {this.state.message}
+                        {this.state.loginMessage}
                     </Alert>
                 </Snackbar>
             </div>
