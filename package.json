@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "- Was having trouble with phx/elixir so I decided to make an express project",
   "main": "server.js",
-  "engines": {
-    "npm": "6.x"
-  },
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
