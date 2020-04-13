@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const WebSocket = require('ws')
 
 //Configure Mongoose
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/code-together');
+mongoose.connect( "mongodb://leetcode:together2020@ds249737.mlab.com:49737/heroku_2sr56kxg");//process.env.MONGODB_URI || 'mongodb://localhost/code-together');
 mongoose.set('debug', true);
 
 // Initialize users database
