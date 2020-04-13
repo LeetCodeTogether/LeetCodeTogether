@@ -1,21 +1,30 @@
 import React from "react";
-import { Paper, TextField, Fab, Divider, Typography } from "@material-ui/core";
+import { Paper, TextField, Fab, Divider, Typography, Button } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
 
 
 const ChatFrame = (props) => {
-    const [messages, updateMessages] = React.useState([])
+    const [messages, updateMessages] = React.useState([]);
+    const [chatField, updateChatField] = React.useState("");
     const ws = props.ws;
     ws.onmessage = (evt) => {
         const message = JSON.parse(evt.data);
         updateMessages(messages.concat(message));
     }
+    const sendMessage = () => {
+        ws.send(JSON.stringify({
+            sender:  props.user.username,
+            message: chatField,
+        }))
+        updateChatField('');
+    }
 
     const ChatMessages = () => (
         messages.map(msg => (
             <Paper variant="outlined" style={props.styles.challenge}>
-                {msg}
+                {msg.sender}: <br /> {msg.message}
             </Paper>)));
+
 
     return (
         <Paper style={props.styles.frame}>
@@ -25,16 +34,19 @@ const ChatFrame = (props) => {
             <form style={props.styles.bottomBar} noValidate autoComplete="off">
                 <TextField id="outlined-basic" label="Message..." variant="outlined" size="small"
                     style={{ maxWidth: "75%", }}
+                    value={chatField}
+                    onChange={e => updateChatField(e.target.value)}
                     onKeyPress={(ev) => {
                         if (ev.key === 'Enter') {
-                            // Do code here
-                            console.log(`Pressed keyCode ${ev.key}`);
+                            sendMessage();
                             ev.preventDefault();
                         }
                     }} />
-                <Fab color="primary" aria-label="send" size="small" style={{ left: "4px", }}>
-                    <SendIcon />
-                </Fab>
+                <Button style={{padding:'0',minWidth:'50px',}}onClick={() => sendMessage()} >
+                    <Fab color="primary" aria-label="send" size="small" >
+                        <SendIcon />
+                    </Fab>
+                </Button>
             </form>
         </Paper>
     )

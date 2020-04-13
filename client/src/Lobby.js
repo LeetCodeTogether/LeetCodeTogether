@@ -35,8 +35,7 @@ class Lobby extends React.Component {
         open: false,
         loginMessage: "",
     }
-    URL = 'ws://localhost:3030';
-    ws = new WebSocket(URL)
+    ws = new WebSocket("ws://localhost:3030")
     componentDidMount() {
         this.ws.onopen = () => {
             this.setState({
@@ -48,7 +47,7 @@ class Lobby extends React.Component {
             console.log('disconnected')
             // automatically try to reconnect on connection loss
             this.setState({
-              ws: new WebSocket(URL),
+              ws: new WebSocket("ws://localhost:3030"),
             })
           }
     };
@@ -68,7 +67,7 @@ class Lobby extends React.Component {
                         <Divider style={{ marginBottom: '20px', }} />
                         <Grid container spacing={3}>
                             <Grid item xs>
-                                <ChatFrame styles={LobbyStyles} ws={this.ws} />
+                                <ChatFrame styles={LobbyStyles} user={this.props.user} ws={this.ws} />
                             </Grid>
                             <Grid item xs>
                                 <ChallengeView styles={LobbyStyles} />
