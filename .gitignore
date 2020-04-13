@@ -37,6 +37,6 @@ npm-debug.log
 /UseExpress/client/node_modules/
 /UseExpress/node_modules/
 /UseExpress/client/code-together/node_modules/
-node_modules
+/node_modules
 /client/node_modules
 /client/build
