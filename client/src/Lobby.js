@@ -35,7 +35,8 @@ class Lobby extends React.Component {
         open: false,
         loginMessage: "",
     }
-    ws = new WebSocket('ws://localhost:3030')
+    URL = 'ws://localhost:3030';
+    ws = new WebSocket(URL)
     componentDidMount() {
         this.ws.onopen = () => {
             this.setState({
@@ -43,6 +44,13 @@ class Lobby extends React.Component {
                 loginMessage: 'Connected to lobby!',
             })
         }
+        this.ws.onclose = () => {
+            console.log('disconnected')
+            // automatically try to reconnect on connection loss
+            this.setState({
+              ws: new WebSocket(URL),
+            })
+          }
     };
     handleClose = (reason) => {
         if (reason === 'clickaway') {
