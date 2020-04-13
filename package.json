@@ -1,7 +1,7 @@
 {
-  "name": "UseExpress",
+  "name": "useexpress",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Was having trouble with phx/elixir so I decided to make an express project",
   "main": "server.js",
   "engines": {
     "npm": "6.x"
@@ -34,5 +34,13 @@
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.9.0",
     "nodemon": "^2.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeetCodeTogether/LeetCodeTogether.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LeetCodeTogether/LeetCodeTogether/issues"
+  },
+  "homepage": "https://github.com/LeetCodeTogether/LeetCodeTogether#readme"
 }
