@@ -30,16 +30,16 @@ const MessagesSchema = new Schema({
 const Messages = mongoose.model('Messages', MessagesSchema);
 
 // Initialize websocket on port: 3030
-const wss = new WebSocket.Server({ server: app, port: 3020 });
-wss.on('connection', function connection(ws) {
-    ws.on('message', function incoming(data) {
-        wss.clients.forEach(function each(client) {
-            if (client.readyState === WebSocket.OPEN) {
-                client.send(data);
-            }
-        });
-    });
-});
+// const wss = new WebSocket.Server({ server: app, port: 3020 });
+// wss.on('connection', function connection(ws) {
+//     ws.on('message', function incoming(data) {
+//         wss.clients.forEach(function each(client) {
+//             if (client.readyState === WebSocket.OPEN) {
+//                 client.send(data);
+//             }
+//         });
+//     });
+// });
 
 // cookieSession config
 app.use(cookieSession({
