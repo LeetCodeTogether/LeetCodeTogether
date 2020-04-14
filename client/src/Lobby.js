@@ -35,9 +35,9 @@ class Lobby extends React.Component {
         open: false,
         loginMessage: "",
     }
-
-    ws = new WebSocket("ws://localhost:3030")
+    ws = new WebSocket("ws://" + window.location.hostname + ":3020");
     componentDidMount() {
+        // console.log("ws://" + window.location.hostname + ":3020");
         this.ws.onopen = () => {
             this.setState({
                 open: true,
