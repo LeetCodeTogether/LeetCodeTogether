@@ -1,5 +1,6 @@
 // Required dependencies 
 const express = require('express');
+const PORT = process.env.PORT || 5000;
 const app = express();
 const path = require('path');
 const passport = require('passport');
@@ -30,16 +31,16 @@ const MessagesSchema = new Schema({
 const Messages = mongoose.model('Messages', MessagesSchema);
 
 // Initialize websocket on port: 3030
-// const wss = new WebSocket.Server({ server: app, port: 3020 });
-// wss.on('connection', function connection(ws) {
-//     ws.on('message', function incoming(data) {
-//         wss.clients.forEach(function each(client) {
-//             if (client.readyState === WebSocket.OPEN) {
-//                 client.send(data);
-//             }
-//         });
-//     });
-// });
+const wss = new WebSocket.Server({ server: app });
+wss.on('connection', function connection(ws) {
+    ws.on('message', function incoming(data) {
+        wss.clients.forEach(function each(client) {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(data);
+            }
+        });
+    });
+});
 
 // cookieSession config
 app.use(cookieSession({
@@ -114,7 +115,7 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
     console.log('Server Started!');
 });
 
