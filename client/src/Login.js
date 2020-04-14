@@ -40,7 +40,7 @@ export default function LoginComponent(props) {
     if (user.username === null || user.username === "null") {
         return (
             <Typography variant="button" noWrap>
-                <Button className={classes.secondaryLogo} onClick={() => { window.open("http://localhost:5000/auth/github", "_self"); }}>Login</Button>
+                <Button className={classes.secondaryLogo} onClick={() => { window.open(window.location.host + "/auth/github", "_self"); }}>Login</Button>
             </Typography>
         )
     } else {

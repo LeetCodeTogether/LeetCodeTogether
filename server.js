@@ -43,7 +43,7 @@ app.use(passport.session()); // Used to persist login sessions
 passport.use(new GitHubStrategy({
     clientID: 'Iv1.661622fe77dff4e6',
     clientSecret: 'bf5e82daa699443f781424185a5db7ffcfb93fe9',
-    callbackURL: "http://localhost:5000/auth/github/callback"
+    callbackURL: "https://leetcode-together.herokuapp.com/auth/github/callback"
 },
     function (accessToken, refreshToken, profile, done) {
         Users.findOrCreate({ githubId: profile.id }, { username: profile.username, name: profile.displayName }, function (err, user) {
