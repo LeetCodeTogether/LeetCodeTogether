@@ -40,7 +40,7 @@ export default function LoginComponent(props) {
     if (user.username === null || user.username === "null") {
         return (
             <Typography variant="button" noWrap>
-                <Button className={classes.secondaryLogo} onClick={() => { window.open(window.location.host + "/auth/github", "_self"); }}>Login</Button>
+                <Button className={classes.secondaryLogo} onClick={() => { window.open("https://leetcode-together.herokuapp.com/auth/github", "_self"); }}>Login</Button>
             </Typography>
         )
     } else {
@@ -63,7 +63,7 @@ export default function LoginComponent(props) {
                             <Paper>
                                 <ClickAwayListener onClickAway={handleClose}>
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                        <MenuItem onClick={() => { window.open("http://localhost:5000/logout", "_self"); }}>Logout</MenuItem>
+                                        <MenuItem onClick={() => { window.open("https://leetcode-together.herokuapp.com/logout", "_self"); }}>Logout</MenuItem>
                                     </MenuList>
                                 </ClickAwayListener>
                             </Paper>
