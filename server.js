@@ -30,18 +30,6 @@ const MessagesSchema = new Schema({
 }).plugin(findOrCreate);
 const Messages = mongoose.model('Messages', MessagesSchema);
 
-// Initialize websocket on port: 3030
-const wss = new WebSocket.Server({ server: app });
-wss.on('connection', function connection(ws) {
-    ws.on('message', function incoming(data) {
-        wss.clients.forEach(function each(client) {
-            if (client.readyState === WebSocket.OPEN) {
-                client.send(data);
-            }
-        });
-    });
-});
-
 // cookieSession config
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000, // One day in milliseconds
@@ -115,7 +103,7 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-app.listen(PORT, () => {
+var server = app.listen(PORT, () => {
     console.log('Server Started!');
 });
 
@@ -126,3 +114,15 @@ app.use(express.static(path.join(__dirname, 'client/build/')));
 app.get('/*', (req, res) => {
     res.redirect('/');
 })
+
+// Initialize websocket 
+const wss = new WebSocket.Server({ server: server });
+wss.on('connection', function connection(ws) {
+    ws.on('message', function incoming(data) {
+        wss.clients.forEach(function each(client) {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(data);
+            }
+        });
+    });
+});
